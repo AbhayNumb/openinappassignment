@@ -5,7 +5,7 @@ async function getallsubtaskwithtaskId(req, res) {
 
   try {
     // Find the subtask by ID
-    const subtask = await Subtask.find({ taskId });
+    const subtask = await Subtask.findOne({ taskId, status: { $ne: -1 } });
     console.log(taskId);
     if (!subtask) {
       return res.status(404).json({ error: "Subtask not found" });

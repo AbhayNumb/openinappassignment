@@ -14,8 +14,8 @@ const port = 3000;
 // NK3BTU6UY1ZZ36438Q4DV5FX
 // +16185981595
 
-const accountSid = "AC2088a8085cc0d2d5aa6dd92a0c868dfc";
-const authToken = "8f2c083c6d455899eb4ca016a73bb3ad";
+const accountSid = "AC77df28a66283a1ba661047c5c71834c2";
+const authToken = "9d0963d605ab3b836b38cbc0213c715f";
 const twilioUrl =
   "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Calls.json";
 
@@ -54,7 +54,7 @@ async function makeCall(phoneNumbers) {
         new URLSearchParams({
           Url: "http://demo.twilio.com/docs/voice.xml",
           To: phoneNumber.phoneNumber,
-          From: "+16185981595",
+          From: "+16067210925",
         }),
         {
           auth: {
@@ -73,10 +73,9 @@ async function makeCall(phoneNumbers) {
     console.error("Error making call:", error);
   }
 }
-twominute = "*/1 * * * *";
-twosecond = "*/2 * * * * *";
+oneminute = "*/1 * * * *";
 // Define your cron job schedule
-cron.schedule(twominute, async () => {
+cron.schedule(oneminute, async () => {
   // runs every 2 seconds
   try {
     // Fetch all pending tasks with due date passed

@@ -4,6 +4,7 @@ const authMiddleware = require("../middlewares/authneticate");
 const updatesubtaskcontroller = require("../controllers/Subtaskcontroller/updatesubtask");
 const deletesubtaskcontroller = require("../controllers/Subtaskcontroller/deletesubtask");
 const getsubtakcontroller = require("../controllers/Subtaskcontroller/getallsubtask");
+const getsubtaskontaksid = require("../controllers/Subtaskcontroller/getallsubtaskforgiventaskid");
 const router = express.Router();
 
 // POST /subtasks/create
@@ -23,10 +24,14 @@ router.delete(
   authMiddleware.authenticateJWT,
   deletesubtaskcontroller.deleteSubtask
 );
-
+router.get(
+  "/get-subtaskwithtaskid/:taskId",
+  authMiddleware.authenticateJWT,
+  getsubtakcontroller.getAllTasks
+);
 router.get(
   "/get-subtask",
   authMiddleware.authenticateJWT,
-  getsubtakcontroller.getAllTasks
+  getsubtaskontaksid.getallsubtaskwithtaskId
 );
 module.exports = router;

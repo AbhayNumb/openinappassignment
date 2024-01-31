@@ -14,8 +14,8 @@ const port = 3000;
 // NK3BTU6UY1ZZ36438Q4DV5FX
 // +16185981595
 
-const accountSid = "AC77df28a66283a1ba661047c5c71834c2";
-const authToken = "9d0963d605ab3b836b38cbc0213c715f";
+const accountSid = "";
+const authToken = "";
 const twilioUrl =
   "https://api.twilio.com/2010-04-01/Accounts/" + accountSid + "/Calls.json";
 
@@ -76,7 +76,7 @@ async function makeCall(phoneNumbers) {
 oneminute = "*/1 * * * *";
 // Define your cron job schedule
 cron.schedule(oneminute, async () => {
-  // runs every 2 seconds
+  // runs every 1 minute
   try {
     // Fetch all pending tasks with due date passed
     const tasks = await Task.find({
